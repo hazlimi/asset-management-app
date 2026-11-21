@@ -389,7 +389,7 @@ else:
         view_height = st.select_slider(
             "Report viewing height",
             options=[650, 800, 950, 1150],
-            value=950,
+            value=650,
             format_func=lambda h: f"{h}px",
         )
         components.iframe(src=url, height=view_height, scrolling=True)
