@@ -1,25 +1,26 @@
-# 🎈 Blank app template
+# Azure Asset Management Portal
 
-A simple Streamlit app template for you to modify!
+This package was adapted from the existing Streamlit application. It retains the homepage layout, navy sidebar, logo, and existing Power BI report URLs, including SHIPMENT PRIORITY v1. No Databricks-specific code or data connections are required for this report-link portal.
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://blank-app-template.streamlit.app/)
+## Deploy
 
-### How to run it on your own machine
+1. Request an approved Azure subscription/resource group and permission to create a Linux Python App Service (Basic B1 or company-approved plan).
+2. Create a Web App using Python 3.11 or 3.12, Linux, and an approved region.
+3. In the Web App settings, set the startup command to `bash startup.sh`.
+4. Set an application setting `SCM_DO_BUILD_DURING_DEPLOYMENT=1` to install `requirements.txt` when deploying ZIP.
+5. Use Azure Cloud Shell: upload the accompanying deployment ZIP and run:
+   `az webapp deploy --resource-group YOUR_RESOURCE_GROUP --name YOUR_WEB_APP_NAME --src-path Azure_Asset_Management_Portal.zip --type zip`
+6. Enable App Service Authentication with the Microsoft identity provider, a workforce/single-tenant app registration, Require authentication, and redirect unauthenticated requests to Microsoft sign-in.
+7. Ask IT to restrict the corresponding Entra enterprise app to authorized colleagues.
+8. Keep the original Databricks App as a rollback until tests pass.
 
-Prerequisite: install `uv` if you don't already have it.
+Do not use Power BI Publish to web (public) for internal reports. Users still need Power BI report access and appropriate licensing. Azure app authentication does not replace Power BI iframe sign-in.
 
-```
-$ curl -LsSf https://astral.sh/uv/install.sh | sh
-```
+## Files
+- `app.py`: Streamlit portal UI, unchanged except hosting labels
+- `logo_sidebar.png`: uploaded Asset Management logo
+- `reports.json`: original six dashboard configurations
+- `requirements.txt`: Python dependency
+- `startup.sh`: Azure Linux startup command
 
-1. Sync the dependencies
-
-   ```
-   $ uv sync
-   ```
-
-2. Run the app
-
-   ```
-   $ uv run streamlit run streamlit_app.py
-   ```
+The Databricks-only `app.yaml` is intentionally not included.

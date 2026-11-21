@@ -1,0 +1,32 @@
+[
+  {
+    "name": "AOG Purchasing",
+    "description": "AOG order receipts, vendors, fleets, and logistics performance",
+    "embed_url": ""
+  },
+  {
+    "name": "OSS Inventory",
+    "description": "OSS contract stock availability and inventory movement",
+    "embed_url": ""
+  },
+  {
+    "name": "OEM SLA Performance",
+    "description": "OEM on-time performance and priority SLA compliance",
+    "embed_url": ""
+  },
+  {
+    "name": "Cabin DD",
+    "description": "Cabin deferred defects, parts requests, and stock status",
+    "embed_url": ""
+  },
+  {
+    "name": "Repair Management",
+    "description": "Repair orders, aging, and vendor monitoring",
+    "embed_url": ""
+  },
+  {
+    "name": "SHIPMENT PRIORITY v1",
+    "description": "Shipment priority and order monitoring",
+    "embed_url": "https://app.powerbi.com/reportEmbed?reportId=20910747-7f36-4c6a-85cb-be017b071ca7&autoAuth=true&ctid=8fc3a567-1ee8-4994-809c-49f50cdb6d48"
+  }
+]
